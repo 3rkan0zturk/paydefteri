@@ -1,0 +1,7 @@
+'use strict';
+const CACHE='pay-defteri-shell-v1';
+const ROOT=new URL('./',self.location).href;
+const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-maskable.png'].map(p=>new URL(p,ROOT).href);
+self.addEventListener('install',event=>{event.waitUntil((async()=>{const cache=await caches.open(CACHE);for(const url of ASSETS){const response=await fetch(url,{cache:'reload',credentials:'same-origin'});if(!response.ok||response.redirected)throw Error('Uygulama dosyası önbelleğe alınamadı');await cache.put(url,response);}await self.skipWaiting();})());});
+self.addEventListener('activate',event=>{event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('pay-defteri-shell-')&&key!==CACHE)await caches.delete(key);await self.clients.claim();})());});
+self.addEventListener('fetch',event=>{const url=new URL(event.request.url);if(event.request.method!=='GET'||url.origin!==self.location.origin)return;if(event.request.mode==='navigate'&&url.href.startsWith(ROOT)){event.respondWith((async()=>{try{const response=await fetch(event.request);if(response.ok&&!response.redirected)return response;}catch(e){}return await caches.match(ROOT)||await caches.match(new URL('index.html',ROOT).href)||Response.error();})());}else if(ASSETS.includes(url.href)){event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request)));}});
