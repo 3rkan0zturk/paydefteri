@@ -1,0 +1,49 @@
+✔ 1: katılımcı olmayan kişinin avansı geçerli; pay ve katılımcı yaratmaz (3.547996ms)
+✔ 2: 1000 TL paylaşım, 700 + 500 tahsilat: Ali 200 alacak ve kasa 200 (9.925653ms)
+✔ 3: sonraki dönem 600 TL, avans mahsup ve kasa tekrar gelir olmadan sıfır (0.777634ms)
+✔ 4: 800 TL alacak ve 300 TL pay -> 500 TL alacak (0.299682ms)
+✔ 5: 200 devir borcu + 300 pay - 100 ödeme = 400 TL borç (0.31092ms)
+✔ 6: katılmayan ve arşivlenen kişi borcu/alacağı; başka kişiye mahsup olmaz (0.421366ms)
+✔ 7: 100 TL / 3 kişi ve sabit katılımcı sırası (0.343999ms)
+✔ 8: 14/15, aralık-ocak, artık yıl ve geçersiz tarihler (0.394275ms)
+✔ 9: geçmiş düzenleme/silme/taşıma bütün sonraki hesaplara yansır (1.340774ms)
+✔ 10: hesap dönemi ve gerçek ödeme tarihi ayrı; geçmiş kasa sonraki tahsilatı içermez (0.406413ms)
+✔ 11: ad/arşiv değişimi ve JSON gidiş-dönüş kimlik ilişkilerini korur (0.645945ms)
+✔ 12: v1 kayıpsız, tekrarlanabilir geçiş ve eski katılımcı koşulu kaldırılmış (0.819327ms)
+✔ 13: çok sayıda gezinme, aralık ve boş ara dönemler veri üretmez (4.414323ms)
+✔ 14: katılımcısız harcama paylaştırılmaz fakat kasadan düşer (0.499333ms)
+✔ 15: gelecek ödeme bugünkü kasaya girmez; negatif kasa korunur (0.139741ms)
+✔ başlangıç: günün işlemlerinden önce, önceki hareketleri hariç tutar (0.147423ms)
+✔ başlangıç tarihi gelecekteyse önceki dönemler ve bugün kapsam dışı (0.111889ms)
+✔ aynı tarihli kasa hareket sırası dizi yeniden sıralansa bile kararlı (0.136066ms)
+✔ Türkçe ve boşluk normalizasyonu; kesin kuruş ayrıştırma (0.670863ms)
+✔ CSV formül enjeksiyonu: boşluk önekleri, sekmeler ve çift tırnak (0.167533ms)
+✔ geçersiz yedekler: ilişkiler, tekrar ID, tarih, tutar, dönem, kasa, updatedAt (0.730122ms)
+✔ kalıcı ham geçiş kopyası; yeniden yüklemede çoğalma yok (0.451932ms)
+✔ geçiş kopyası yazılamıyorsa özgün veri üzerine yazılmaz (0.419393ms)
+✔ bozuk veri ham korunur; geçerli yedekle kurtarılabilir (0.673597ms)
+✔ kayıt hatası belleği ve diski değiştirmez; geçersiz yedek mevcut veriyi bozmaz (0.631693ms)
+✔ başka sekme değişikliği üzerine yazılmaz (0.509099ms)
+✔ çift gönderimde tek işlem ve Web Locks kullanımı (0.233673ms)
+✔ güvenli kilit olmayan tarayıcıda uygulama yazımı veri korumak için reddeder (0.113812ms)
+✔ rastgele çok dönem: toplam pay ve kişi bakiye korunumu; mutasyon yok (21.367994ms)
+✔ PWA install: tüm yerel dosyalar gerçekten önbellekte; zorunlu etkinleşme yok (6.901618ms)
+✔ PWA eksik dosyada kurulum başarısız, yarım önbellek silinir, hazır denmez (1.862942ms)
+✔ PWA çevrimdışı alt dizin navigasyonu ve dosyalar önbellekten gelir (2.407334ms)
+✔ PWA güncelleme sadece mesajla etkinleşir; diğer uygulamanın önbelleği korunur (2.973258ms)
+✔ manifest alt dizin scope/start_url ve gerçek PNG boyutları (0.54341ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 139.711911
+
+JavaScript syntax: accounting.js, storage.js, app.js, sw.js, tests/browser.cjs passed node --check.
+HTML IDs and local asset paths passed structural checks.
+Real browser suite: could not start (Chromium executable unavailable; installation failed).
+Cloud browser: local test URL blocked by client.
+Mobile visual review, actual offline/PWA and iOS/Android installation: NOT VERIFIED.
+GitHub write: create-tree rejected with HTTP 403 Resource not accessible by integration. Repository was read; no branch, PR or deployment created.
